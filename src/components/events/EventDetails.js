@@ -5,6 +5,7 @@ import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
 import moment from 'moment';
 import { deleteEvent } from '../../store/actions/eventActions';
+import { NavLink } from 'react-router-dom';
 
 export class EventDetails extends Component {
     handleDelete = (e) => {
@@ -25,10 +26,10 @@ export class EventDetails extends Component {
                             <p><strong>Place: </strong>{event.place}</p>
                             <p><strong>Date: </strong>{moment(event.createdAt.toDate()).calendar()}</p>
                             <p><strong>Description: </strong>{event.description}</p>
-                            <button className="btn red darken-4" onClick={this.handleDelete}>delete</button>
                             <br />
-                            <div className="card-action grey lighten-4 grey-text">
-                                <div>Event posted by {event.authorFirstName} {event.authorLastName}, {moment(event.createdAt.toDate()).calendar()}</div>
+                            <div className="card-action actions">
+                                <NavLink to={'/update/' + this.props.match.params.id} key={event.id} className="btn green darken-1">update</NavLink>
+                                <button className="btn red darken-4" onClick={this.handleDelete}>delete</button>
                             </div>
                         </div>
                     </div>
