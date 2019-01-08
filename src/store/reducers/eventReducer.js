@@ -10,6 +10,12 @@ const eventReducer = (state = initState, action) => {
         case 'CREATE_EVENT_ERROR':
             console.log('error creating an event', action.err);
             return state;
+        case 'EVENT_DELETED':
+            console.log('event deleted');
+            return state;
+        case 'EVENT_NOT_DELETED':
+            console.log('event NOT deleted');
+            return state;
         default:
             return state;
     }

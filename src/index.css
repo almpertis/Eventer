@@ -29,3 +29,39 @@ form {
 form button, form h5{
   margin: 20px 0;
 }
+
+.react-datetime-picker--closed {
+  border-radius: 4px;
+}
+.react-datetime-picker--closed .react-datetime-picker__wrapper {
+  border-radius: 4px;
+}
+.react-datetime-picker__wrapper {
+  background: white;
+  border: 0;
+  border-radius: 4px;
+  font-size: 1.5em;
+}
+.react-datetime-picker__inputGroup {
+  min-width: calc(4px + (4px * 3) + 0.54em * 8 + 0.217em * 2);
+  flex-grow: 1;
+  display: flex;
+  padding: 2px;
+  align-items: baseline;
+}
+.react-datetime-picker__inputGroup__input--hasLeadingZero {
+  margin-left: -0.54em;
+  padding-left: calc(1px + 0.54em);
+}
+
+.react-datetime-picker__inputGroup__input {
+  min-width: 0.54em;
+  height: calc(100% - 2px);
+  position: relative;
+  padding: 1px;
+  border: 0;
+  background: none;
+  font: inherit;
+  box-sizing: content-box;
+  -moz-appearance: textfield;
+}
