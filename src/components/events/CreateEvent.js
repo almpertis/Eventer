@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { createEvent } from '../../store/actions/eventActions';
 import { Redirect } from 'react-router-dom';
 import DateTimePicker from 'react-datetime-picker';
-import moment from 'moment';
 
 export class CreateEvent extends Component {
     state = {
@@ -25,11 +24,6 @@ export class CreateEvent extends Component {
     }
     onChange = date => this.setState({ date })
     render() {
-        const shortcuts = {
-            'Today': moment(),
-            'Yesterday': moment().subtract(1, 'days'),
-            'Clear': ''
-        };
         const { auth } = this.props;
         if (!auth.uid) return <Redirect to='/signin' />
         return (
