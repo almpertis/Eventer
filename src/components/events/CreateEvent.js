@@ -38,26 +38,27 @@ export class CreateEvent extends Component {
                     <h5 className="greay=text text-darken-3">Create new Event</h5>
                     <div className="input-field">
                         <label htmlFor="title">Title</label>
-                        <input type="text" id="title" onChange={this.handleChange} />
+                        <input type="text" id="title" onChange={this.handleChange} required />
                     </div>
                     <div className="input-field">
                         <label htmlFor="attendees">Attendees</label>
-                        <input type="text" id="attendees" onChange={this.handleChange} />
+                        <input type="text" id="attendees" onChange={this.handleChange} required />
                     </div>
                     <div className="input-field">
                         <label htmlFor="place">Place</label>
-                        <input type="text" id="place" onChange={this.handleChange} />
+                        <input type="text" id="place" onChange={this.handleChange} required />
                     </div>
                     <div>
                         <DateTimePicker
                             locale={'el-GR'}
                             onChange={this.onChange}
                             value={this.state.date}
+                            required
                         />
                     </div>
                     <div className="input-field">
                         <label htmlFor="description">Description</label>
-                        <textarea id="description" className="materialize-textarea" onChange={this.handleChange} ></textarea>
+                        <textarea id="description" className="materialize-textarea" onChange={this.handleChange} required ></textarea>
                     </div>
                     <div className="input-field">
                         <button className="btn pink lighten-1 z-depth-0">Create</button>
