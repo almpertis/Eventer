@@ -30,6 +30,11 @@ form button, form h5{
   margin: 20px 0;
 }
 
+.thename{
+  font-size: 20px;
+  font-weight: 500;
+}
+
 .actions{
   display: flex;
   flex-direction: row;
