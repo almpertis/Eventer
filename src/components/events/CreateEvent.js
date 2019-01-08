@@ -8,7 +8,7 @@ export class CreateEvent extends Component {
     state = {
         title: '',
         attendees: '',
-        Place: '',
+        place: '',
         date: new Date(),
         description: ''
     }
@@ -43,6 +43,7 @@ export class CreateEvent extends Component {
                         <input type="text" id="place" onChange={this.handleChange} required />
                     </div>
                     <div>
+                        <span className='grey-text'>Date & Time</span> &nbsp;
                         <DateTimePicker
                             locale={'el-GR'}
                             onChange={this.onChange}

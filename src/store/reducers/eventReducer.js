@@ -16,6 +16,13 @@ const eventReducer = (state = initState, action) => {
         case 'EVENT_NOT_DELETED':
             console.log('event NOT deleted');
             return state;
+        case 'EVENT_UPDATED':
+            console.log('event updated');
+            return state;
+        case 'EVENT_NOT_UPDATED':
+            console.log('event NOT updated');
+            return state;
+
         default:
             return state;
     }

@@ -18,15 +18,24 @@ export const createEvent = (event) => {
     }
 };
 
-export const deleteEvent = (event) => {
+export const deleteEvent = (event_id) => {
     return (dispatch, getState, { getFirestore }) => {
         const firestore = getFirestore();
-        firestore.collection('events').delete({
-            event
-        }).then(()=>{
-            dispatch({type: 'EVENT_DELETED'});
-        }).catch((err)=>{
-            dispatch({type: 'EVENT_NOT_DELETED'});
+        firestore.delete({ collection: 'events', doc: event_id }).then(() => {
+            dispatch({ type: 'EVENT_DELETED' });
+        }).catch((err) => {
+            dispatch({ type: 'EVENT_NOT_DELETED' });
+        })
+    }
+}
+
+export const updateEvent = (event, event_id) => {
+    return (dispatch, getState, { getFirestore }) => {
+        const firestore = getFirestore();
+        firestore.update({ collection: 'events', doc: event_id }, event).then(() => {
+            dispatch({ type: 'EVENT_UPDATED' });
+        }).catch((err) => {
+            dispatch({ type: 'EVENT_NOT_UPDATED' });
         })
     }
 }

@@ -8,14 +8,14 @@ import { deleteEvent } from '../../store/actions/eventActions';
 
 export class EventDetails extends Component {
     handleDelete = (e) => {
-        this.props.deleteEvent(this.props.match.params.id)
+        this.props.deleteEvent(this.props.match.params.id);
+        this.props.history.push('/');
     }
     render() {
         const { event, auth } = this.props;
         if (!auth.uid) return <Redirect to='/signin' />
 
         if (event) {
-            console.log(event)
             return (
                 <div className="container section project-details">
                     <div className="card z-depth-0">
@@ -25,11 +25,11 @@ export class EventDetails extends Component {
                             <p><strong>Place: </strong>{event.place}</p>
                             <p><strong>Date: </strong>{moment(event.createdAt.toDate()).calendar()}</p>
                             <p><strong>Description: </strong>{event.description}</p>
+                            <button className="btn red darken-4" onClick={this.handleDelete}>delete</button>
                             <br />
                             <div className="card-action grey lighten-4 grey-text">
                                 <div>Event posted by {event.authorFirstName} {event.authorLastName}, {moment(event.createdAt.toDate()).calendar()}</div>
                             </div>
-                            <button onClick={this.handleDelete}>delete</button>
                         </div>
                     </div>
                 </div>
