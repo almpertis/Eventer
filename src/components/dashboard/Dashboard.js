@@ -21,12 +21,12 @@ class Dashboard extends Component {
         if (!auth.uid) return <Redirect to='/signin' />
         return (
             <div className="dashboard container">
-                <Search onSearch={this.handleSearch} />
+                {events && events.length > 0 ? <Search onSearch={this.handleSearch} /> : <span></span>}
                 <div className="row">
-                    {events ?
+                    {events ? (
                         <div className="col s12 m12">
                             <EventList searchValue={this.state.search} events={events} />
-                        </div>
+                        </div>)
                         : <p style={pStyle}>Loading...</p>}
                 </div>
             </div>
