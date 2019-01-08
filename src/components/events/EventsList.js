@@ -14,7 +14,7 @@ const pStyle = {
 const EventList = ({ events }) => {
     return (
         <div className="project-list section">
-            {events.length<1 && <p style={pStyle}>There are no events currently.</p>}
+            {events.length<1 && <p style={pStyle}>There are currently no events. Feel free to create one!</p>}
             {events && events.map(event => {
                 return (
                     <Link to={'/event/' + event.id} key={event.id}>
