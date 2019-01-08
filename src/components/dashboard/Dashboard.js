@@ -4,19 +4,30 @@ import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
+import Search from './Search';
 
 class Dashboard extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            search: ''
+        }
+    }
+    handleSearch = (searchValue) => {
+        this.setState({ search: searchValue });
+    }
     render() {
         const { events, auth } = this.props;
         if (!auth.uid) return <Redirect to='/signin' />
         return (
             <div className="dashboard container">
+                <Search onSearch={this.handleSearch} />
                 <div className="row">
                     {events ?
                         <div className="col s12 m12">
-                            <EventList events={events} />
+                            <EventList searchValue={this.state.search} events={events} />
                         </div>
-                    : <p style={pStyle}>Loading...</p>}
+                        : <p style={pStyle}>Loading...</p>}
                 </div>
             </div>
         )

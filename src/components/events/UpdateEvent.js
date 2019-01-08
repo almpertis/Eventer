@@ -18,21 +18,12 @@ export class UpdateEvent extends Component {
         }
     }
     handleChange = (e) => {
-        this.setState({
-            [e.target.id]: e.target.value
-        })
+        this.props.event[e.target.id] = e.target.value;
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        debugger;
-        this.props.updateEvent(this.state, this.props.match.params.id);
+        this.props.updateEvent(this.props.event, this.props.match.params.id);
         this.props.history.push('/');
-    }
-    componentDidUpdate(prevProps, prevState) {
-        // only update chart if the data has changed
-        if (prevProps.event == null) {
-            this.setState({ ...this.props.event });
-        }
     }
     onChange = date => {
         this.setState({ date })

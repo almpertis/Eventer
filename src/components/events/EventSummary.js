@@ -7,7 +7,7 @@ const EventSummary = ({event}) => {
             <div className="card-content grey-text text-darken-3">
                 <span className="card-title">{event.title}</span>
                 <p>Posted by {event.authorFirstName} {event.authorLastName}</p>
-                <p className="grey-text">{moment(event.date.toDate()).calendar()}</p>
+                <p className="grey-text">{moment(event.date.toDate()).format("MMMM Do YYYY, h:mm:ss a")}</p>
             </div>
         </div>
     )
